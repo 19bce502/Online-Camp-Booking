@@ -1,0 +1,19 @@
+<?php
+	$name=$_POST['Name'];
+	$spe=$_POST['spec'];
+	$exp=$_POST['exp'];
+	$eq=$_POST['EQ'];
+	$contact=$_POST['Contact'];
+	$email=$_POST['Email'];
+	$Address=$_POST['Address'];
+	$age=$_POST['age'];
+	$img=$_FILES["image"]["name"];
+	$con=mysql_connect("localhost","root","");
+	$db=mysql_select_db("expedition",$con);
+	$q=mysql_query("INSERT INTO team VALUES(NULL, '$name','$spe', $exp, '$eq', '$contact','$Address', $age, '$img')");
+	move_uploaded_file($_FILES['image']['tmp_name'],"images/team/".$img);
+	if($q)
+		header("location:thankyou.php");
+	else
+		header("location:sorry.php");
+?>
