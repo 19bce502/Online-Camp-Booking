@@ -79,7 +79,7 @@ if(!isset($_SESSION['admin']))
                 <div class="row">
                     <div class="col-12">
                         <div class="section-title">
-                            <h4>Date Table</h4>
+                            <h4>Gallery Table</h4>
                         </div>
                     </div>
                     <div class="col-12">
@@ -89,32 +89,31 @@ if(!isset($_SESSION['admin']))
                                     <thead>
                                     <tr>
                                         <th>Id</th>
-                                        <th>Camp_Id</th>
-                                        <th>Date</th>
-                                        <th>Edit</th>
+                                        <th>Image</th>
+                                        
+                                        
+                                        <th>Camp_id</th>
                                         <th>Delete</th>
                                     </tr>
                                     </thead>
                                     <tbody>
                                 <?php
                                     include 'conn.php';
-                                    $res=mysql_query("select * from dates ORDER by id DESC");
+                                    $res=mysql_query("select * from gallery ORDER by id DESC");
                                     $row=mysql_fetch_row($res);
-                                    $id=1;
                                     while($row)
                                     {
                                 ?>
                                     <tr>
-                                        <td><?php echo $id ?></td>
-                                        <td class=""><?php echo $row[1] ?></td>
-                                        <td class=""><?php echo $row[2] ?></td>
-                                       
-                                        <td><a href="edit_dates.php?id=<?php echo $row[0] ?>"><button>Edit</button></a></td>
-
-                                        <td><a href="delete_dates_process.php?id=<?php echo $row[0] ?>"><button>Delete</button></a></td>
+                                        <td><?php echo $row[0];?></td>
+                                        <td class="price"><img src="../project/images/gallery/<?php echo $row[1] ?>" hight="50" width="50"></td>
+                                                                               <td class=""><?php echo $row[3] ?></td>
+                                        
+                                      
+                                        <td><a href="delete_gallery_process.php?id=<?php echo $row[0] ?>"><button>Delete</button></a></td>
                                     </tr>
                                 <?php
-                                        $id++;
+                                        
                                         $row=mysql_fetch_row($res);
                                     }
                                 ?>

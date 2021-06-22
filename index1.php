@@ -6,11 +6,10 @@ if(!isset($_SESSION['admin']))
 }
 
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
-<!-- Mirrored from wow.designgurus.in/sideNavigationLayout/blue/tables_regular.php by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 05 Nov 2017 08:07:50 GMT -->
+<!-- Mirrored from wow.designgurus.in/sideNavigationLayout/blue/index.php by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 05 Nov 2017 08:04:24 GMT -->
 <head>
     <meta charset="UTF-8">
     <meta content="ie=edge" http-equiv="x-ua-compatible">
@@ -54,17 +53,9 @@ if(!isset($_SESSION['admin']))
     <link rel="stylesheet" href="assets/css/main.css">
 </head>
 <body>
-
-<!---Preloader Starts Here--->
-
-<!---Preloader Ends Here--->
-
-
-<!--Navigation-->
 <?php
     include "slide.php";
 ?>
-
 
 <!--Page Container-->
 <section class="page-container">
@@ -74,59 +65,23 @@ if(!isset($_SESSION['admin']))
                 include 'header.php';
             ?>
           
-        <div class="content sm-gutter">
+
+        <!--Main Content-->
+        <div class="content ">
             <div class="container-fluid padding-25 sm-padding-10">
                 <div class="row">
-                    <div class="col-12">
-                        <div class="section-title">
-                            <h4>Date Table</h4>
-                        </div>
-                    </div>
-                    <div class="col-12">
-                        <div class="block table-block mb-4">
-                            <div class="table-responsive">
-                                <table class="table">
-                                    <thead>
-                                    <tr>
-                                        <th>Id</th>
-                                        <th>Camp_Id</th>
-                                        <th>Date</th>
-                                        <th>Edit</th>
-                                        <th>Delete</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                <?php
-                                    include 'conn.php';
-                                    $res=mysql_query("select * from dates ORDER by id DESC");
-                                    $row=mysql_fetch_row($res);
-                                    $id=1;
-                                    while($row)
-                                    {
-                                ?>
-                                    <tr>
-                                        <td><?php echo $id ?></td>
-                                        <td class=""><?php echo $row[1] ?></td>
-                                        <td class=""><?php echo $row[2] ?></td>
-                                       
-                                        <td><a href="edit_dates.php?id=<?php echo $row[0] ?>"><button>Edit</button></a></td>
+                    
 
-                                        <td><a href="delete_dates_process.php?id=<?php echo $row[0] ?>"><button>Delete</button></a></td>
-                                    </tr>
-                                <?php
-                                        $id++;
-                                        $row=mysql_fetch_row($res);
-                                    }
-                                ?>
-                                    </tbody>
-                                </table>
-                            </div>
+                    <div class="col-12">
+                        <div style="margin-top: 250px">
+                            <center><strong><h1>WELCOME TO ADMIN PANEL</h1></strong></center>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-</section>
+    </div>
+</section>          
 
 <!---Right Tray--->
 <div class="right-sidebar px-3">
@@ -205,5 +160,5 @@ if(!isset($_SESSION['admin']))
 
 </body>
 
-<!-- Mirrored from wow.designgurus.in/sideNavigationLayout/blue/tables_regular.php by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 05 Nov 2017 08:07:53 GMT -->
+<!-- Mirrored from wow.designgurus.in/sideNavigationLayout/blue/index.php by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 05 Nov 2017 08:05:18 GMT -->
 </html>

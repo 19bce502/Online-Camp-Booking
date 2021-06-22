@@ -1,352 +1,177 @@
-<?php
-session_start();
-$con=mysql_connect("localhost","root","");
-$db=mysql_select_db("expedition",$con);
-$pgname="index"; 
-$d = date("y-m-d");
-$query = "select cmp_id from dates where dates <= '$d'";
-$q = mysql_query($query);
-
-if($q)
-  {
-    $temp = mysql_fetch_row($q);
-    $query = "delete from dates where dates <='$d' ";
-    $res1 = mysql_query($query);
-
-    
-    $query = "select * from dates where cmp_id = $temp[0]";
-    $res = mysql_query($query);
-    if($res)
-      {
-        $n=mysql_num_rows($res);
-        if($n==0)
-          {
-            $query = "delete from pkg where cmp_id = $temp[0]";
-            $res = mysql_query($query);
-            $query = "delete from camps where id = $temp[0]";
-            $res = mysql_query($query);
-            $query = "delete from gallery where id = $temp[0]";
-            $res = mysql_query($query);
-          }
-     }
-    else
-      {
-        
-      }
-  }
-  else 
-  {
-  }
-
-?>
 <!DOCTYPE html>
 <html lang="en">
-   
-<!-- Mirrored from zone.qtcmedia.com/html/index.php by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Nov 2017 12:07:47 GMT -->
-<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+
+<!-- Mirrored from wow.designgurus.in/sideNavigationLayout/blue/pages_login.php by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 05 Nov 2017 08:07:50 GMT -->
 <head>
-      <title>Expedition</title>
-      <!-- viewport meta -->
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <!-- styles -->
-      <link rel="stylesheet" href="plugins/bootstrap/css/bootstrap.min.css">
-      <!-- fontawesome css -->
-      <link rel="stylesheet" href="plugins/font-awesome/css/font-awesome.min.css">
-      <!-- flaticon css -->
-      <link rel="stylesheet" href="plugins/flaticon/flaticon.css">
-      <!-- revolution slider css -->
-      <link rel="stylesheet" href="plugins/revolution/css/settings.css">
-      <link rel="stylesheet" href="plugins/revolution/css/layers.css">
-      <link rel="stylesheet" href="plugins/revolution/css/navigation.css">
-      <!-- jQuery ui css -->
-      <link href="plugins/jquery-ui-1.12.1/jquery-ui.css" rel="stylesheet">
-      <!-- owl carousel css -->
-      <link rel="stylesheet" href="plugins/owl.carousel-2/assets/owl.carousel.css">
-      <link rel="stylesheet" href="plugins/owl.carousel-2/assets/owl.theme.default.min.css">
-      <!-- gallery -->
-      <link rel="stylesheet" href="plugins/lightGallery/dist/css/lightgallery.min.css">
-      <!-- animate css -->
-      <link rel="stylesheet" href="plugins/animate.min.css">
-      <!-- bxslider -->
-      <link rel="stylesheet" href="plugins/bx-slider/jquery.bxslider.css">
-      <!-- datetimepicker css -->
-      <link rel="stylesheet" href="plugins/datetimepicker/jquery.datetimepicker.min.css">
-      <!-- master stylesheet -->
-      <link rel="stylesheet" href="css/style.css">
-      <!-- responsive stylesheet -->
-      <link rel="stylesheet" href="css/responsive.css">
-      <!-- skin stylesheet -->
-      <link rel="stylesheet" href="css/skin/skin-default.css">
-      <!-- favicon -->
-      <link rel="shortcut icon" href="images/favicon.ico" />
-	  <!-- Facebook Pixel Code -->
-        <script>
-            !function (f, b, e, v, n, t, s)
-            {
-                if (f.fbq)
-                    return;
-                n = f.fbq = function () {
-                    n.callMethod ?
-                            n.callMethod.apply(n, arguments) : n.queue.push(arguments)
-                };
-                if (!f._fbq)
-                    f._fbq = n;
-                n.push = n;
-                n.loaded = !0;
-                n.version = '2.0';
-                n.queue = [];
-                t = b.createElement(e);
-                t.async = !0;
-                t.src = v;
-                s = b.getElementsByTagName(e)[0];
-                s.parentNode.insertBefo
-                re(t, s)
-            }(window, document, 'script', '../../connect.facebook.net/en_US/fbevents.js');
-            fbq('init', '348669228917290');
-            fbq('track', 'PageView');
-        </script>
-        <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=348669228917290&amp;ev=PageView&amp;noscript=1"/></noscript>
-        <!-- End Facebook Pixel Code -->
-   </head>
-   <body>
-    <?php
-      include 'header.php';
-    ?>
-      <section class="rev_slider_wrapper slider1">
-         <div id="slider3" class="rev_slider"  data-version="5.0">
-            <ul>
-              <?php
-      $q=mysql_query("select * from slider");
-      $n=mysql_num_rows($q);
-      for ($i=1; $i <=$n ; $i++)
-      { 
-          $row=mysql_fetch_row($q);    
-      
-    ?>
-    
-               <li data-transition="slotfade-vertical" data-slotamount="default"  data-easein="Power4.easeInOut" data-easeout="Power4.easeInOut" data-masterspeed="2000"  data-rotate="0"  data-fstransition="fade" data-fsmasterspeed="1500" data-fsslotamount="7" data-saveperformance="off" >
-                  <img src="images/slider/<?php echo $row[1] ?>"  alt="" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="10" class="rev-slidebg" data-no-retina/>
-                  <div class="tp-caption tp-resizeme banner-caption-h1 color-primary text-center"
-                       data-x="right" data-hoffset="0"
-                       data-y="center" data-voffset="-50"
-                       data-whitespace="nowrap"
-                       data-transform_idle="o:1;"
+    <meta charset="UTF-8">
+    <meta content="ie=edge" http-equiv="x-ua-compatible">
+    <meta content="template language" name="keywords">
+    <meta content="Design_Gurus" name="author">
+    <meta content="WOW Admin dashboard html template" name="description">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <title>Admin</title>
 
-                       data-transform_in="x:[105%];z:0;rX:45deg;rY:0deg;rZ:90deg;sX:1;sY:1;skX:0;skY:0;s:2000;e:Power4.easeInOut;"
-                       data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;"
-                       data-mask_in="x:0px;y:0px;s:inherit;e:inherit;"
-                       data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;"
-                       data-start="1000"
-                       data-splitin="chars"
-                       data-splitout="none"
-                       data-responsive_offset="on"
+    <!--favicon-->
+    <link href="assets/images/favicon.ico" rel="shortcut icon">
 
-                       data-elementdelay="0.05" >
-                     explore.
-                  </div>
-                  <div class="tp-caption tp-resizeme banner-caption-p text-center"
-                       data-x="right" data-hoffset="0"
-                       data-y="center" data-voffset="20"
-                       data-whitespace="nowrap"
-                       data-transform_idle="o:1;"
+    <!--Preloader-CSS-->
+    <link rel="stylesheet" href="assets/plugins/preloader/preloader.css">
 
-                       data-transform_in="x:[105%];z:0;rX:45deg;rY:0deg;rZ:90deg;sX:1;sY:1;skX:0;skY:0;s:2000;e:Power4.easeInOut;"
-                       data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;"
-                       data-mask_in="x:0px;y:0px;s:inherit;e:inherit;"
-                       data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;"
-                       data-start="1500"
-                       data-splitin="chars"
-                       data-splitout="none"
-                       data-responsive_offset="on"
+    <!--bootstrap-4-->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
 
-                       data-elementdelay="0.05" >
-                     new lands with us
-                  </div>
-                  
-               </li>
-               <?php
-          }
-      ?>
-           
-            </ul>
-         </div>
-      </section>
-          <section class="choose-tour sec-padding sec-padding-top-large">
-         <div class="zt-container">
-            <div class="sec-title text-center sec-title-padding">
-               <h2>Why choose us</h2>
-               <span class="tagline">Here is some description about us from that u can decide why to choose us</span>
-               <span class="img-border"></span>
+    <!--Custom Scroll-->
+    <link rel="stylesheet" href="assets/plugins/customScroll/jquery.mCustomScrollbar.min.css">
+    <!--Font Icons-->
+    <link rel="stylesheet" href="assets/icons/simple-line/css/simple-line-icons.css">
+    <link rel="stylesheet" href="assets/icons/dripicons/dripicons.css">
+    <link rel="stylesheet" href="assets/icons/ionicons/css/ionicons.min.css">
+    <link rel="stylesheet" href="assets/icons/eightyshades/eightyshades.css">
+    <link rel="stylesheet" href="assets/icons/fontawesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/icons/foundation/foundation-icons.css">
+    <link rel="stylesheet" href="assets/icons/metrize/metrize.css">
+    <link rel="stylesheet" href="assets/icons/typicons/typicons.min.css">
+    <link rel="stylesheet" href="assets/icons/weathericons/css/weather-icons.min.css">
+
+    <!--Date-range-->
+    <link rel="stylesheet" href="assets/plugins/date-range/daterangepicker.css">
+    <!--Drop-Zone-->
+    <link rel="stylesheet" href="assets/plugins/dropzone/dropzone.css">
+    <!--Full Calendar-->
+    <link rel="stylesheet" href="assets/plugins/full-calendar/fullcalendar.min.css">
+    <!--Normalize Css-->
+    <link rel="stylesheet" href="assets/css/normalize.css">
+    <!--Main Css-->
+    <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+
+<!--Preloader Starts Here-->
+<!--div id="ip-container" class="ip-container">
+    <header class="ip-header">
+        <h1 class="ip-logo text-center"><img class="img-fluid" src="assets/images/logo-c.png" alt="" class="ip-logo text-center"/></h1>
+        <div class="ip-loader">
+            <svg class="ip-inner" width="60px" height="60px" viewBox="0 0 80 80">
+                <path class="ip-loader-circlebg" d="M40,10C57.351,10,71,23.649,71,40.5S57.351,71,40.5,71 S10,57.351,10,40.5S23.649,10,40.5,10z"/>
+                <path id="ip-loader-circle" class="ip-loader-circle" d="M40,10C57.351,10,71,23.649,71,40.5S57.351,71,40.5,71 S10,57.351,10,40.5S23.649,10,40.5,10z"/>
+            </svg>
+        </div>
+    </header>
+</div>-->
+<!--Preloader Ends Here-->
+
+<section style="background: url(assets/images/contact.jpg?w=940&amp;h=650&amp;auto=compress&amp;cs=tinysrgb);background-size: cover">
+    <div class="height-100-vh bg-primary-trans">
+        <div class="container-fluid">
+            <div class="row justify-content-center">
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="login-div">
+                        <p class="logo mb-1">Admin</p>
+                        <p class="mb-4" style="color: #a5b5c5">Sign into your pages account</p>
+                        <form id="needs-validation" action="login.php" method="POST" novalidate>
+                            <div class="form-group">
+                                <label>Login</label>
+                                <input class="form-control input-lg" placeholder="Username" type="text" name="email" required>
+                                <div class="invalid-feedback">This field is required.</div>
+                            </div>
+                            <div class="form-group">
+                                <label>Password</label>
+                                <input class="form-control input-lg" placeholder="Credentials" type="password" name="password" required>
+                                <div class="invalid-feedback">This field is required.</div>
+                            </div>
+
+                            <div class="checkbox">
+                                <label class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input">
+                                    <span class="custom-control-indicator"></span>
+                                    <span class="custom-control-description">Remember me</span>
+                                </label>
+                            </div>
+                            <a href="login.php"><button class="btn btn-primary mt-2">Sign In</button></a>
+                        </form>
+                    </div>
+                </div>
             </div>
-            <div class="row">
-               <div class="col-md-4 col-sm-12 col-xs-12">
-                  <div class="box-awesome-service">
-                     <div class="box-icon">
-                        <span class="flaticon-big-compass"></span>
-                     </div>
-                     <div class="box-text">
-                        <h3>ADVENTURE</h3>
-                        <p>An adventure is an exciting experience that is typically a bold,sometimes riskybut due the 
-                          perfect and proper guidelines as well as perfect follow ups of guides  this problem can be
-                          solved.Adventure tourism is all about connecting with nature.So let us join the
-                          us to explore the India. </p>
-                     </div>
-                  </div>
-               </div>
-               <div class="col-md-4 col-sm-12 col-xs-12">
-                  <div class="box-awesome-service">
-                     <div class="box-icon">
-                        <span class="flaticon-save"></span>
-                     </div>
-                     <div class="box-text">
-                        <h3>FUN & SAFETY</h3>
-                        <p>As to explore the places it will be lot of fun but along with fun there should be saftey also 
-                          so safety is the highest priority. So all the guides will be valid first aid kit. Here all the staff has given special trainning for the saftey.</p>
-                     </div>
-                  </div>
-               </div>
-               <div class="col-md-4 col-sm-12 col-xs-12">
-                  <div class="box-awesome-service">
-                     <div class="box-icon">
-                        <span class="flaticon-big-flag-waving"></span>
-                     </div>
-                     <div class="box-text">
-                        <h3>SERVICES</h3>
-                        <p>Expedition provides all the servies to the visitors.Best food services , good Journey, To meet with incredible nature, good place to stay, Good hygine facilitis, first aid facilities.</p>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </section>
-      <section class="popular-services sec-padding">
-         <div class="zt-container">
-            <div class="sec-title text-center sec-title-padding">
-               <h2>POPULAR DESTINATIONS</h2>
-               <span class="tagline">Below displayed destinations are mostly visited places by our uses.</span>
-               <span class="img-border"></span>
-            </div>
-            <div class="row">
-              <?php
-                $q=mysql_query("select * from camps order by id DESC limit 6");
-                for ($i=0; $i <6 ; $i++) 
-                { 
-                      $row=mysql_fetch_row($q);
-                ?>
-               <div class="col-md-4 col-sm-6 col-xs-6">
-                  <div class="tour-list-box text-center zt-overlay zt-overlay-hover">
-                     <div class="img-box position-relative">
-                        <div class="zt-overlay-panel zt-overlay-backgrounu,d zt-overlay-slide-top zt-flex zt-flex-center zt-flex-middle text-center">
-                           <a href="destination-detail.php?id=<?php echo $row[0];?>" class="btn zt-default btn-lg">Book Now</a>
-                        </div>
-                        <img src="images/camps/<?php echo $row[4]; ?>" alt=""/>
-                     </div>
-                     <div class="box-content">
-                        <h4><?php echo $row[1]; ?></h4>
-                        <div class="driver"></div>
-                        <span class="duration">Duration: <?php echo $row[2]; ?> dys & <?php echo $row[5]; ?> nyts<br/> Cost: <?php echo $row[3]; ?></span>
-                     </div>
-                  </div>
-               </div>
-               
-               <?php
-              }
-               ?>
-            </div>
-         </div>
-      </section>
-      <section class="clients-says sec-padding">
-         <div class="zt-container">
-            <div class="sec-title text-center sec-title-padding">
-               <h2>what our clients says</h2>
-               <span class="tagline">Here are some reviews from the users who have visited the destinations with expedition.</span>
-               <span class="img-border"></span>
-            </div>
-            <div class="clients-says-content position-relative">
-               <ul class="clients-slider">
-                <?php 
-                  $q=mysql_query("select * from reviews");
-                  $n=mysql_num_rows($q);
-                  for ($i=1; $i <=$n ; $i++) 
-                  { 
-                    $row=mysql_fetch_row($q);
-                ?>
-                  <li class="item">
-                     <p><?php echo $row[3]; ?></p>
-                     <div class="meta-profile"><span class="color-primary">- <?php echo $row[1]; ?>,</span> U.S.A </div>
-                  </li>
-                  <?php
-                      }
-                  ?>
-                  <!--<li class="item">
-                     <p>“ Consectetur adipiscing elit. Etiam eu gravida risus. Aenean lacinia lacus ac nibh bibendum,<br/> non mollis urna pellentesque. Maecenas suscipit justo elit."</p>
-                     <div class="meta-profile"><span class="color-primary">- Emily Henderson,</span> U.S.A </div>
-                  </li>
-                  <li class="item">
-                     <p>“ Consectetur adipiscing elit. Etiam eu gravida risus. Aenean lacinia lacus ac nibh bibendum,<br/> non mollis urna pellentesque. Maecenas suscipit justo elit."</p>
-                     <div class="meta-profile"><span class="color-primary">- Emily Henderson,</span> U.S.A </div>
-                  </li>-->
-               </ul>
-             </div>
-               <!--<?php 
-                  $q=mysql_query("select * from signup");
-                  $n=mysql_num_rows($q);
-                  for ($i=1; $i <=$n ; $i++) 
-                  { 
-                    $row=mysql_fetch_row($q)
-                ?>
-               <div class="slider-thumbnail-item">
-                     <a data-slide-index="2" href="#" class="zt-overlay">
-                        <div class="zt-overlay-background zt-overlay-panel zt-overlay-circular zt-overlay-opacity"></div>
-                        <img class="img circular" src="images/profile/" alt=""/>
-                     </a>
-                  </div>
-                <?php
-                    }
-                  ?>-->
-         </div>
-      </section>
-         </div>
-      </section>
-      <?php
-        include 'footer.php';
-      ?>
-      <!-- JS -->
-      <!-- jQuery js -->
-      <script src="plugins/jquery/jquery-1.12.4.min.js"></script>
-      <!-- bootstrap js -->
-      <script src="plugins/bootstrap/js/bootstrap.min.js"></script>
-      <!-- jQuery ui js -->
-      <script src="plugins/jquery-ui-1.12.1/jquery-ui.js"></script>
-      <!-- owl carousel js -->
-      <script src="plugins/owl.carousel-2/owl.carousel.min.js"></script>
-      <!-- gallery js -->
-      <script src="plugins/lightGallery/dist/js/lightgallery-all.min.js"></script>
-      <script src="plugins/lightGallery/dist/js/jquery.mousewheel.min.js"></script>
-      <!-- jQuery validation -->
-      <script src="plugins/jquery-validation/dist/jquery.validate.min.js"></script>
-      <!-- bxslider js -->
-      <script src="plugins/bx-slider/jquery.bxslider.min.js"></script>
-      <!-- datetimepicker js -->
-      <script src="plugins/datetimepicker/jquery.datetimepicker.full.min.js"></script>
-      <!-- revolution slider js -->
-      <script src="plugins/revolution/js/jquery.themepunch.tools.min.js"></script>
-      <script src="plugins/revolution/js/jquery.themepunch.revolution.min.js"></script>
-      <script src="plugins/revolution/js/extensions/revolution.extension.actions.min.js"></script>
-      <script src="plugins/revolution/js/extensions/revolution.extension.carousel.min.js"></script>
-      <script src="plugins/revolution/js/extensions/revolution.extension.kenburn.min.js"></script>
-      <script src="plugins/revolution/js/extensions/revolution.extension.layeranimation.min.js"></script>
-      <script src="plugins/revolution/js/extensions/revolution.extension.migration.min.js"></script>
-      <script src="plugins/revolution/js/extensions/revolution.extension.navigation.min.js"></script>
-      <script src="plugins/revolution/js/extensions/revolution.extension.parallax.min.js"></script>
-      <script src="plugins/revolution/js/extensions/revolution.extension.slideanims.min.js"></script>
-      <script src="plugins/revolution/js/extensions/revolution.extension.video.min.js"></script>
+        </div>
+    </div>
+</section>
 
-      <!-- theme custom js  -->
-      <script src="js/main.js"></script>
-   </body>
+<!---Right Tray--->
+<div class="right-sidebar px-3">
+    <button class="right-side-toggle"><i class="fa fa-cog fa-spin"></i></button>
+	<div class="block bg-trans" style="margin-bottom: 0">
+        <div class="block-heading">
+            <h5>Top Navigation</h5>
+        </div>
+        <ul class="list-unstyled top-nav themecolors">
+            <li><a href="javascript:void(0)" data-laycolor="topNavigationLayout/cyan"><div class="color-div" style="background: #18BCC9"><i class="fa fa-check my-auto"></i></div></a></li>
+            <li><a href="javascript:void(0)" data-laycolor="topNavigationLayout/blue"><div class="color-div" style="background: #1880c9"><i class="fa fa-check my-auto"></i></div></a></li>
+            <li><a href="javascript:void(0)" data-laycolor="topNavigationLayout/green"><div class="color-div" style="background: #18c97e"><i class="fa fa-check my-auto"></i></div></a></li>
+            <li><a href="javascript:void(0)" data-laycolor="topNavigationLayout/red"><div class="color-div" style="background: #e13f4c"><i class="fa fa-check my-auto"></i></div></a></li>
+            <li><a href="javascript:void(0)" data-laycolor="topNavigationLayout/purple"><div class="color-div" style="background: #723fe1"><i class="fa fa-check my-auto"></i></div></a></li>
+            <li><a href="javascript:void(0)" data-laycolor="topNavigationLayout/orange"><div class="color-div" style="background: rgb(255,120,45)"><i class="fa fa-check my-auto"></i></div></a></li>
+        </ul>
+    </div>
+	
+    <div class="block bg-trans">
+        <div class="block-heading">
+            <h5>Side Navigation</h5>
+        </div>
+        <ul class="list-unstyled side-nav themecolors">
+            <li><a href="javascript:void(0)" data-laycolor="sideNavigationLayout/cyan"><div class="color-div" style="background: #18BCC9"><i class="fa fa-check my-auto"></i></div></a></li>
+            <li><a href="javascript:void(0)" data-laycolor="sideNavigationLayout/blue"><div class="color-div" style="background: #1880c9"><i class="fa fa-check my-auto"></i></div></a></li>
+            <li><a href="javascript:void(0)" data-laycolor="sideNavigationLayout/green"><div class="color-div" style="background: #18c97e"><i class="fa fa-check my-auto"></i></div></a></li>
+            <li><a href="javascript:void(0)" data-laycolor="sideNavigationLayout/red"><div class="color-div" style="background: #e13f4c"><i class="fa fa-check my-auto"></i></div></a></li>
+            <li><a href="javascript:void(0)" data-laycolor="sideNavigationLayout/purple"><div class="color-div" style="background: #723fe1"><i class="fa fa-check my-auto"></i></div></a></li>
+            <li><a href="javascript:void(0)" data-laycolor="sideNavigationLayout/orange"><div class="color-div" style="background: rgb(255,120,45)"><i class="fa fa-check my-auto"></i></div></a></li>
+        </ul>
+    </div>
+</div>
 
+<!--Jquery-->
+<script type="text/javascript" src="assets/js/jquery-3.2.1.min.js"></script>
+<!--Bootstrap Js-->
+<script type="text/javascript" src="assets/js/popper.min.js"></script>
+<script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
+<!--Modernizr Js-->
+<script type="text/javascript" src="assets/js/modernizr.custom.js"></script>
 
-<!-- Mirrored from zone.qtcmedia.com/html/index.php by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Nov 2017 12:10:23 GMT -->
+<!--Morphin Search JS-->
+<script type="text/javascript" src="assets/plugins/morphin-search/classie.js"></script>
+<script type="text/javascript" src="assets/plugins/morphin-search/morphin-search.js"></script>
+<!--Morphin Search JS-->
+<script type="text/javascript" src="assets/plugins/preloader/pathLoader.js"></script>
+<script type="text/javascript" src="assets/plugins/preloader/preloader-main.js"></script>
+
+<!--Chart js-->
+<script type="text/javascript" src="assets/plugins/charts/Chart.min.js"></script>
+
+<!--Sparkline Chart Js-->
+<script type="text/javascript" src="assets/plugins/sparkline/jquery.sparkline.min.js"></script>
+<script type="text/javascript" src="assets/plugins/sparkline/jquery.charts-sparkline.js"></script>
+
+<!--Custom Scroll-->
+<script type="text/javascript" src="assets/plugins/customScroll/jquery.mCustomScrollbar.min.js"></script>
+<!--Sortable Js-->
+<script type="text/javascript" src="assets/plugins/sortable2/sortable.min.js"></script>
+<!--DropZone Js-->
+<script type="text/javascript" src="assets/plugins/dropzone/dropzone.js"></script>
+<!--Date Range JS-->
+<script type="text/javascript" src="assets/plugins/date-range/moment.min.js"></script>
+<script type="text/javascript" src="assets/plugins/date-range/daterangepicker.js"></script>
+<!--CK Editor JS-->
+<script type="text/javascript" src="assets/plugins/ckEditor/ckeditor.js"></script>
+<!--Data-Table JS-->
+<script type="text/javascript" src="assets/plugins/data-tables/datatables.min.js"></script>
+<!--Editable JS-->
+<script type="text/javascript" src="assets/plugins/editable/editable.js"></script>
+<!--Full Calendar JS-->
+<script type="text/javascript" src="assets/plugins/full-calendar/fullcalendar.min.js"></script>
+
+<!--- Main JS -->
+<script src="assets/js/main.js"></script>
+
+</body>
+
+<!-- Mirrored from wow.designgurus.in/sideNavigationLayout/blue/pages_login.php by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 05 Nov 2017 08:07:50 GMT -->
 </html>

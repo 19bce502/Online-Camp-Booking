@@ -10,7 +10,7 @@ if(!isset($_SESSION['admin']))
 <!DOCTYPE html>
 <html lang="en">
 
-<!-- Mirrored from wow.designgurus.in/sideNavigationLayout/blue/tables_regular.php by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 05 Nov 2017 08:07:50 GMT -->
+<!-- Mirrored from wow.designgurus.in/sideNavigationLayout/blue/pages_login.php by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 05 Nov 2017 08:07:50 GMT -->
 <head>
     <meta charset="UTF-8">
     <meta content="ie=edge" http-equiv="x-ua-compatible">
@@ -55,77 +55,63 @@ if(!isset($_SESSION['admin']))
 </head>
 <body>
 
-<!---Preloader Starts Here--->
+<!--Preloader Starts Here-->
+<!--div id="ip-container" class="ip-container">
+    <header class="ip-header">
+        <h1 class="ip-logo text-center"><img class="img-fluid" src="assets/images/logo-c.png" alt="" class="ip-logo text-center"/></h1>
+        <div class="ip-loader">
+            <svg class="ip-inner" width="60px" height="60px" viewBox="0 0 80 80">
+                <path class="ip-loader-circlebg" d="M40,10C57.351,10,71,23.649,71,40.5S57.351,71,40.5,71 S10,57.351,10,40.5S23.649,10,40.5,10z"/>
+                <path id="ip-loader-circle" class="ip-loader-circle" d="M40,10C57.351,10,71,23.649,71,40.5S57.351,71,40.5,71 S10,57.351,10,40.5S23.649,10,40.5,10z"/>
+            </svg>
+        </div>
+    </header>
+</div>-->
+<!--Preloader Ends Here-->
 
-<!---Preloader Ends Here--->
-
-
-<!--Navigation-->
-<?php
-    include "slide.php";
-?>
-
-
-<!--Page Container-->
-<section class="page-container">
-    <div class="page-content-wrapper">
-        <!--Header Fixed-->
-        <?php
-                include 'header.php';
-            ?>
-          
-        <div class="content sm-gutter">
-            <div class="container-fluid padding-25 sm-padding-10">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="section-title">
-                            <h4>Date Table</h4>
-                        </div>
-                    </div>
-                    <div class="col-12">
-                        <div class="block table-block mb-4">
-                            <div class="table-responsive">
-                                <table class="table">
-                                    <thead>
-                                    <tr>
-                                        <th>Id</th>
-                                        <th>Camp_Id</th>
-                                        <th>Date</th>
-                                        <th>Edit</th>
-                                        <th>Delete</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                <?php
-                                    include 'conn.php';
-                                    $res=mysql_query("select * from dates ORDER by id DESC");
-                                    $row=mysql_fetch_row($res);
-                                    $id=1;
-                                    while($row)
-                                    {
-                                ?>
-                                    <tr>
-                                        <td><?php echo $id ?></td>
-                                        <td class=""><?php echo $row[1] ?></td>
-                                        <td class=""><?php echo $row[2] ?></td>
-                                       
-                                        <td><a href="edit_dates.php?id=<?php echo $row[0] ?>"><button>Edit</button></a></td>
-
-                                        <td><a href="delete_dates_process.php?id=<?php echo $row[0] ?>"><button>Delete</button></a></td>
-                                    </tr>
-                                <?php
-                                        $id++;
-                                        $row=mysql_fetch_row($res);
-                                    }
-                                ?>
-                                    </tbody>
-                                </table>
+<section style="background: url(../../../images.pexels.com/photos/176851/pexels-photo-176851663a.jpg?w=940&amp;h=650&amp;auto=compress&amp;cs=tinysrgb);background-size: cover">
+    <div class="height-100-vh bg-primary-trans">
+        <div class="container-fluid">
+            <div class="row justify-content-center">
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="login-div">
+                        <p class="logo mb-1">Add Admin</p>
+                        <p class="mb-4" style="color: #a5b5c5">Sign into your pages account</p>
+                        <form id="needs-validation" action="Add_admin_process.php" method="POST" novalidate enctype="multipart/form-data">
+                            <div class="form-group">
+                                <label>Name</label>
+                                <input class="form-control input-lg" placeholder="Admin Name" type="text" name="name" required>
+                                <div class="invalid-feedback">This field is required.</div>
                             </div>
-                        </div>
+
+
+                            <div class="form-group">
+                                <label>Email</label>
+                                <input class="form-control input-lg" placeholder="Username" type="text" name="email" required>
+                                <div class="invalid-feedback">This field is required.</div>
+                            </div>
+                            <div class="form-group">
+                                <label>Password</label>
+                                <input class="form-control input-lg" placeholder="Credentials" type="password" name="password" required>
+                                <div class="invalid-feedback">This field is required.</div>
+                            </div>
+                            <div class="form-group">
+                                    
+                                        <label>Image</label>
+                                        <div>
+                                            <div><input type="file" name="image" required=""></div>
+                                        </div>
+                                    
+                                </div>
+
+                            
+                            <a href="Add_admin_process.php"><button class="btn btn-primary mt-2">Add Admin</button></a>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
 </section>
 
 <!---Right Tray--->
@@ -205,5 +191,5 @@ if(!isset($_SESSION['admin']))
 
 </body>
 
-<!-- Mirrored from wow.designgurus.in/sideNavigationLayout/blue/tables_regular.php by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 05 Nov 2017 08:07:53 GMT -->
+<!-- Mirrored from wow.designgurus.in/sideNavigationLayout/blue/pages_login.php by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 05 Nov 2017 08:07:50 GMT -->
 </html>

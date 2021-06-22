@@ -1,199 +1,207 @@
-<?php 
+<?php
 session_start();
-$pgname="contact"; ?>
+if(!isset($_SESSION['admin']))
+{
+    header("location:index.php");
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
-   
-<!-- Mirrored from zone.qtcmedia.com/html/contact.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Nov 2017 12:17:37 GMT -->
+
+<!-- Mirrored from wow.designgurus.in/sideNavigationLayout/blue/tables_regular.php by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 05 Nov 2017 08:07:50 GMT -->
 <head>
-      <title>Expedition</title>
-      <!-- viewport meta -->
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <!-- styles -->
-      <link rel="stylesheet" href="plugins/bootstrap/css/bootstrap.min.css">
-      <!-- fontawesome css -->
-      <link rel="stylesheet" href="plugins/font-awesome/css/font-awesome.min.css">
-      <!-- flaticon css -->
-      <link rel="stylesheet" href="plugins/flaticon/flaticon.css">
-      <!-- revolution slider css -->
-      <link rel="stylesheet" href="plugins/revolution/css/settings.css">
-      <link rel="stylesheet" href="plugins/revolution/css/layers.css">
-      <link rel="stylesheet" href="plugins/revolution/css/navigation.css">
-      <!-- jQuery ui css -->
-      <link href="plugins/jquery-ui-1.12.1/jquery-ui.css" rel="stylesheet">
-      <!-- owl carousel css -->
-      <link rel="stylesheet" href="plugins/owl.carousel-2/assets/owl.carousel.css">
-      <link rel="stylesheet" href="plugins/owl.carousel-2/assets/owl.theme.default.min.css">
-      <!-- gallery -->
-      <link rel="stylesheet" href="plugins/lightGallery/dist/css/lightgallery.min.css">
-      <!-- animate css -->
-      <link rel="stylesheet" href="plugins/animate.min.css">
-      <!-- bxslider -->
-      <link rel="stylesheet" href="plugins/bx-slider/jquery.bxslider.css">
-      <!-- datetimepicker css -->
-      <link rel="stylesheet" href="plugins/datetimepicker/jquery.datetimepicker.min.css">
-      <!-- master stylesheet -->
-      <link rel="stylesheet" href="css/style.css">
-      <!-- responsive stylesheet -->
-      <link rel="stylesheet" href="css/responsive.css">
-      <!-- skin stylesheet -->
-      <link rel="stylesheet" href="css/skin/skin-default.css">
-      <!-- favicon -->
-      <link rel="shortcut icon" href="images/favicon.ico" />
-   </head>
-   <body>
-      <?php
-         include 'header.php';
-      ?>
-      <section class="inner-banner">
-         <div class="zt-container">
-            <div class="box clearfix">
-               <h2>Contact</h2>
-               <ul class="breadcumb">
-                  <li><a href="index.html">Home</a></li>
-                  <li><span>Contact</span></li>
-               </ul>
-            </div>
-         </div>
-      </section>
-      <section class="contact-page gallery-masonry sec-padding">
-         <div class="zt-container">
-            <div class="sec-title text-center sec-title-padding">
-               <h2>Send Us a Message</h2>
-               <span class="tagline">Send your reviews </span>
-            </div>
-            <div class="contact-info">
-               <div class="row">
-                  <div class="col-md-4 col-sm-6 col-xs-12">
-                     <div class="box-awesome-service">
-                        <div class="box-icon">
-                           <span class="fa fa-phone"></span>
-                        </div>
-                        <div class="box-text">
-                           <p>9998097164</p>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="col-md-4 col-sm-6 col-xs-12">
-                     <div class="box-awesome-service">
-                        <div class="box-icon">
-                           <span class="fa fa-map-marker"></span>
-                        </div>
-                        <div class="box-text">
-                           <p><strong>Jamnagar Gujarat ,</strong>361008 <br/>India</p>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="col-md-4 col-sm-6 col-xs-12">
-                     <div class="box-awesome-service">
-                        <div class="box-icon">
-                           <span class="fa fa-envelope"></span>
-                        </div>
-                        <div class="box-text">
-                           <p>expedition@gmail.com</p>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-            </div>
-            <form class="form contact-form" action="contact1.php" method="POST">
-               <div class="row">
-                  <div class="col-md-offset-1 col-md-5 col-sm-6 col-xs-12">
-                     <div class="form-group">
-                        <div class="input-icon left">
-                           <input type="text" name="name" class="zt-control" placeholder="Your Name *">
-                           <div class="input-addon"><span class="fa fa-user"></span></div>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="col-md-5 col-sm-6 col-xs-12">
-                     <div class="form-group">
-                        <div class="input-icon left">
-                           <input type="text" name="email" class="zt-control" placeholder="Email *">
-                           <div class="input-addon"><span class="fa fa-envelope"></span></div>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="col-md-offset-1 col-md-10 col-sm-12 col-xs-12">
-                     <div class="form-group">
-                        <div class="input-icon left">
-                           <textarea name="message" class="zt-control" placeholder="Emter your message..." rows="10"></textarea>
-                           <div class="input-addon"><span class="fa fa-pencil"></span></div>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="col-md-offset-1 col-md-10 col-sm-12 col-xs-12">
-                     <div class="zt-flex zt-flex-center">
-                        <input type="submit" class="btn zt-default btn-lg" value="submit">
-                     </div>
-                  </div>
-                  <div class="col-md-12">
-                     <div class="response"></div>
-                  </div>
-               </div>
-            </form>
-         </div>
-      </section>
-      <div style="padding:0.6%">
-      </div>
-      <section class="about-info sec-padding">
-         <div class="zt-container-min">
-            <div class="sec-title text-center">
-               <h2>About Expedition</h2>
-               <span class="tagline">An adventure is an exciting experience that is typically a bold,sometimes riskybut due the 
-                          perfect and proper guidelines as well as perfect follow ups of guides  this problem can be
-                          solved.Adventure tourism is all about connecting with nature.So let us join the
-                          us to explore the India.</span>
-            </div>
-            <div class="about-info-content">
-               <p>The online camp booking is beign developed for the tourist so that they can book their camps from all over the world.This project takes the information from the tourist through feeling their details.A tourist beign registered in the website has the facility to book their own camps.The website would be save time .
-</p>
-            </div>
-         </div>
-      </section>
-      <?php
-         include 'footer.php';
-      ?>
-      <!-- JS -->
-      <!-- jQuery js -->
-      <script src="plugins/jquery/jquery-1.12.4.min.js"></script>
-      <!-- bootstrap js -->
-      <script src="plugins/bootstrap/js/bootstrap.min.js"></script>
-      <!-- jQuery ui js -->
-      <script src="plugins/jquery-ui-1.12.1/jquery-ui.js"></script>
-      <!-- owl carousel js -->
-      <script src="plugins/owl.carousel-2/owl.carousel.min.js"></script>
-      <!-- gallery js -->
-      <script src="plugins/lightGallery/dist/js/lightgallery-all.min.js"></script>
-      <script src="plugins/lightGallery/dist/js/jquery.mousewheel.min.js"></script>
-      <!-- jQuery validation -->
-      <script src="plugins/jquery-validation/dist/jquery.validate.min.js"></script>
-      <!-- bxslider js -->
-      <script src="plugins/bx-slider/jquery.bxslider.min.js"></script>
-      <!-- masonry js -->
-      <script src="plugins/masonry.pkgd.min.js"></script>
-      <!-- google map js -->
-      <script src="plugins/gmap3.min.js"></script>
-      <!-- datetimepicker js -->
-      <script src="plugins/datetimepicker/jquery.datetimepicker.full.min.js"></script>
-      <!-- revolution slider js -->
-      <script src="plugins/revolution/js/jquery.themepunch.tools.min.js"></script>
-      <script src="plugins/revolution/js/jquery.themepunch.revolution.min.js"></script>
-      <script src="plugins/revolution/js/extensions/revolution.extension.actions.min.js"></script>
-      <script src="plugins/revolution/js/extensions/revolution.extension.carousel.min.js"></script>
-      <script src="plugins/revolution/js/extensions/revolution.extension.kenburn.min.js"></script>
-      <script src="plugins/revolution/js/extensions/revolution.extension.layeranimation.min.js"></script>
-      <script src="plugins/revolution/js/extensions/revolution.extension.migration.min.js"></script>
-      <script src="plugins/revolution/js/extensions/revolution.extension.navigation.min.js"></script>
-      <script src="plugins/revolution/js/extensions/revolution.extension.parallax.min.js"></script>
-      <script src="plugins/revolution/js/extensions/revolution.extension.slideanims.min.js"></script>
-      <script src="plugins/revolution/js/extensions/revolution.extension.video.min.js"></script>
+    <meta charset="UTF-8">
+    <meta content="ie=edge" http-equiv="x-ua-compatible">
+    <meta content="template language" name="keywords">
+    <meta content="Design_Gurus" name="author">
+    <meta content="WOW Admin dashboard html template" name="description">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <title>Admin</title>
 
-      <!-- theme custom js  -->
-      <script src="js/main.js"></script>
-   </body>
+    <!--favicon-->
+    <link href="assets/images/favicon.ico" rel="shortcut icon">
+
+    <!--Preloader-CSS-->
+    <link rel="stylesheet" href="assets/plugins/preloader/preloader.css">
+
+    <!--bootstrap-4-->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+
+    <!--Custom Scroll-->
+    <link rel="stylesheet" href="assets/plugins/customScroll/jquery.mCustomScrollbar.min.css">
+    <!--Font Icons-->
+    <link rel="stylesheet" href="assets/icons/simple-line/css/simple-line-icons.css">
+    <link rel="stylesheet" href="assets/icons/dripicons/dripicons.css">
+    <link rel="stylesheet" href="assets/icons/ionicons/css/ionicons.min.css">
+    <link rel="stylesheet" href="assets/icons/eightyshades/eightyshades.css">
+    <link rel="stylesheet" href="assets/icons/fontawesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/icons/foundation/foundation-icons.css">
+    <link rel="stylesheet" href="assets/icons/metrize/metrize.css">
+    <link rel="stylesheet" href="assets/icons/typicons/typicons.min.css">
+    <link rel="stylesheet" href="assets/icons/weathericons/css/weather-icons.min.css">
+
+    <!--Date-range-->
+    <link rel="stylesheet" href="assets/plugins/date-range/daterangepicker.css">
+    <!--Drop-Zone-->
+    <link rel="stylesheet" href="assets/plugins/dropzone/dropzone.css">
+    <!--Full Calendar-->
+    <link rel="stylesheet" href="assets/plugins/full-calendar/fullcalendar.min.css">
+    <!--Normalize Css-->
+    <link rel="stylesheet" href="assets/css/normalize.css">
+    <!--Main Css-->
+    <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+
+<!---Preloader Starts Here--->
+
+<!---Preloader Ends Here--->
 
 
-<!-- Mirrored from zone.qtcmedia.com/html/contact.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Nov 2017 12:17:38 GMT -->
+<!--Navigation-->
+<?php
+    include "slide.php";
+?>
+
+
+<!--Page Container-->
+<section class="page-container">
+    <div class="page-content-wrapper">
+        <!--Header Fixed-->
+        <?php
+                include 'header.php';
+            ?>
+          
+        <div class="content sm-gutter">
+            <div class="container-fluid padding-25 sm-padding-10">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="section-title">
+                            <h4>Contacts Table</h4>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="block table-block mb-4">
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                    <tr>
+                                        <th>Id</th>
+                                        <th>Name</th>
+                                        <th>Email</th>
+                                        <th>Message</th>
+                                        <th>Delete</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                <?php
+                                    include 'conn.php';
+                                    $res=mysql_query("select * from reviews ORDER by id DESC");
+                                    $row=mysql_fetch_row($res);
+                                    $id=1;
+                                    while($row)
+                                    {
+                                ?>
+                                    <tr>
+                                        <td><?php echo $id ?></td>
+                                        <td class=""><?php echo $row[1] ?></td>
+                                        <td class=""><?php echo $row[2] ?></td>
+                                        <td class=""><?php echo $row[3] ?></td>
+                                        <td><a href="delete_contact_process.php?id=<?php echo $row[0] ?>"><button>Delete</button></a></td>
+                                    </tr>
+                                <?php
+                                        $id++;
+                                        $row=mysql_fetch_row($res);
+                                    }
+                                ?>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</section>
+
+<!---Right Tray--->
+<div class="right-sidebar px-3">
+    <button class="right-side-toggle"><i class="fa fa-cog fa-spin"></i></button>
+	<div class="block bg-trans" style="margin-bottom: 0">
+        <div class="block-heading">
+            <h5>Top Navigation</h5>
+        </div>
+        <ul class="list-unstyled top-nav themecolors">
+            <li><a href="javascript:void(0)" data-laycolor="topNavigationLayout/cyan"><div class="color-div" style="background: #18BCC9"><i class="fa fa-check my-auto"></i></div></a></li>
+            <li><a href="javascript:void(0)" data-laycolor="topNavigationLayout/blue"><div class="color-div" style="background: #1880c9"><i class="fa fa-check my-auto"></i></div></a></li>
+            <li><a href="javascript:void(0)" data-laycolor="topNavigationLayout/green"><div class="color-div" style="background: #18c97e"><i class="fa fa-check my-auto"></i></div></a></li>
+            <li><a href="javascript:void(0)" data-laycolor="topNavigationLayout/red"><div class="color-div" style="background: #e13f4c"><i class="fa fa-check my-auto"></i></div></a></li>
+            <li><a href="javascript:void(0)" data-laycolor="topNavigationLayout/purple"><div class="color-div" style="background: #723fe1"><i class="fa fa-check my-auto"></i></div></a></li>
+            <li><a href="javascript:void(0)" data-laycolor="topNavigationLayout/orange"><div class="color-div" style="background: rgb(255,120,45)"><i class="fa fa-check my-auto"></i></div></a></li>
+        </ul>
+    </div>
+	
+    <div class="block bg-trans">
+        <div class="block-heading">
+            <h5>Side Navigation</h5>
+        </div>
+        <ul class="list-unstyled side-nav themecolors">
+            <li><a href="javascript:void(0)" data-laycolor="sideNavigationLayout/cyan"><div class="color-div" style="background: #18BCC9"><i class="fa fa-check my-auto"></i></div></a></li>
+            <li><a href="javascript:void(0)" data-laycolor="sideNavigationLayout/blue"><div class="color-div" style="background: #1880c9"><i class="fa fa-check my-auto"></i></div></a></li>
+            <li><a href="javascript:void(0)" data-laycolor="sideNavigationLayout/green"><div class="color-div" style="background: #18c97e"><i class="fa fa-check my-auto"></i></div></a></li>
+            <li><a href="javascript:void(0)" data-laycolor="sideNavigationLayout/red"><div class="color-div" style="background: #e13f4c"><i class="fa fa-check my-auto"></i></div></a></li>
+            <li><a href="javascript:void(0)" data-laycolor="sideNavigationLayout/purple"><div class="color-div" style="background: #723fe1"><i class="fa fa-check my-auto"></i></div></a></li>
+            <li><a href="javascript:void(0)" data-laycolor="sideNavigationLayout/orange"><div class="color-div" style="background: rgb(255,120,45)"><i class="fa fa-check my-auto"></i></div></a></li>
+        </ul>
+    </div>
+</div>
+
+<!--Jquery-->
+<script type="text/javascript" src="assets/js/jquery-3.2.1.min.js"></script>
+<!--Bootstrap Js-->
+<script type="text/javascript" src="assets/js/popper.min.js"></script>
+<script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
+<!--Modernizr Js-->
+<script type="text/javascript" src="assets/js/modernizr.custom.js"></script>
+
+<!--Morphin Search JS-->
+<script type="text/javascript" src="assets/plugins/morphin-search/classie.js"></script>
+<script type="text/javascript" src="assets/plugins/morphin-search/morphin-search.js"></script>
+<!--Morphin Search JS-->
+<script type="text/javascript" src="assets/plugins/preloader/pathLoader.js"></script>
+<script type="text/javascript" src="assets/plugins/preloader/preloader-main.js"></script>
+
+<!--Chart js-->
+<script type="text/javascript" src="assets/plugins/charts/Chart.min.js"></script>
+
+<!--Sparkline Chart Js-->
+<script type="text/javascript" src="assets/plugins/sparkline/jquery.sparkline.min.js"></script>
+<script type="text/javascript" src="assets/plugins/sparkline/jquery.charts-sparkline.js"></script>
+
+<!--Custom Scroll-->
+<script type="text/javascript" src="assets/plugins/customScroll/jquery.mCustomScrollbar.min.js"></script>
+<!--Sortable Js-->
+<script type="text/javascript" src="assets/plugins/sortable2/sortable.min.js"></script>
+<!--DropZone Js-->
+<script type="text/javascript" src="assets/plugins/dropzone/dropzone.js"></script>
+<!--Date Range JS-->
+<script type="text/javascript" src="assets/plugins/date-range/moment.min.js"></script>
+<script type="text/javascript" src="assets/plugins/date-range/daterangepicker.js"></script>
+<!--CK Editor JS-->
+<script type="text/javascript" src="assets/plugins/ckEditor/ckeditor.js"></script>
+<!--Data-Table JS-->
+<script type="text/javascript" src="assets/plugins/data-tables/datatables.min.js"></script>
+<!--Editable JS-->
+<script type="text/javascript" src="assets/plugins/editable/editable.js"></script>
+<!--Full Calendar JS-->
+<script type="text/javascript" src="assets/plugins/full-calendar/fullcalendar.min.js"></script>
+
+<!--- Main JS -->
+<script src="assets/js/main.js"></script>
+
+</body>
+
+<!-- Mirrored from wow.designgurus.in/sideNavigationLayout/blue/tables_regular.php by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 05 Nov 2017 08:07:53 GMT -->
 </html>

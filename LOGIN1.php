@@ -55,18 +55,13 @@ if(!isset($_SESSION['admin']))
 </head>
 <body>
 
-<!---Preloader Starts Here--->
 
-<!---Preloader Ends Here--->
-
-
-<!--Navigation-->
 <?php
     include "slide.php";
 ?>
 
 
-<!--Page Container-->
+
 <section class="page-container">
     <div class="page-content-wrapper">
         <!--Header Fixed-->
@@ -79,7 +74,7 @@ if(!isset($_SESSION['admin']))
                 <div class="row">
                     <div class="col-12">
                         <div class="section-title">
-                            <h4>Date Table</h4>
+                            <h4>Admin Login Table</h4>
                         </div>
                     </div>
                     <div class="col-12">
@@ -89,16 +84,19 @@ if(!isset($_SESSION['admin']))
                                     <thead>
                                     <tr>
                                         <th>Id</th>
-                                        <th>Camp_Id</th>
-                                        <th>Date</th>
-                                        <th>Edit</th>
+                                        <th>Name</th>
+                                        <th>Image</th>
+                                        
+                                        <th>Email</th>
+                                        <th>Password</th>
+                                        
                                         <th>Delete</th>
                                     </tr>
                                     </thead>
                                     <tbody>
                                 <?php
                                     include 'conn.php';
-                                    $res=mysql_query("select * from dates ORDER by id DESC");
+                                    $res=mysql_query("select * from login order by id desc");
                                     $row=mysql_fetch_row($res);
                                     $id=1;
                                     while($row)
@@ -107,11 +105,11 @@ if(!isset($_SESSION['admin']))
                                     <tr>
                                         <td><?php echo $id ?></td>
                                         <td class=""><?php echo $row[1] ?></td>
-                                        <td class=""><?php echo $row[2] ?></td>
-                                       
-                                        <td><a href="edit_dates.php?id=<?php echo $row[0] ?>"><button>Edit</button></a></td>
-
-                                        <td><a href="delete_dates_process.php?id=<?php echo $row[0] ?>"><button>Delete</button></a></td>
+                                        <td class="price"><img src="../project/images/gallery/<?php echo $row[2] ?>" hight="50" width="50"></td>
+                                        <td class=""><?php echo $row[3] ?></td>
+                                        <td class=""><?php echo $row[4] ?></td>
+                                        
+                                        <td><a href="delete_login_process.php?id=<?php echo $row[0] ?>"><button>Delete</button></a></td>
                                     </tr>
                                 <?php
                                         $id++;

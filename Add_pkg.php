@@ -10,7 +10,7 @@ if(!isset($_SESSION['admin']))
 <!DOCTYPE html>
 <html lang="en">
 
-<!-- Mirrored from wow.designgurus.in/sideNavigationLayout/blue/tables_regular.php by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 05 Nov 2017 08:07:50 GMT -->
+<!-- Mirrored from wow.designgurus.in/sideNavigationLayout/blue/forms_regular.php by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 05 Nov 2017 08:07:50 GMT -->
 <head>
     <meta charset="UTF-8">
     <meta content="ie=edge" http-equiv="x-ua-compatible">
@@ -18,7 +18,7 @@ if(!isset($_SESSION['admin']))
     <meta content="Design_Gurus" name="author">
     <meta content="WOW Admin dashboard html template" name="description">
     <meta content="width=device-width, initial-scale=1" name="viewport">
-    <title>Admin</title>
+    <title>Admin </title>
 
     <!--favicon-->
     <link href="assets/images/favicon.ico" rel="shortcut icon">
@@ -70,62 +70,77 @@ if(!isset($_SESSION['admin']))
 <section class="page-container">
     <div class="page-content-wrapper">
         <!--Header Fixed-->
-        <?php
+            <?php
                 include 'header.php';
             ?>
-          
-        <div class="content sm-gutter">
+               <div class="content sm-gutter">
             <div class="container-fluid padding-25 sm-padding-10">
                 <div class="row">
                     <div class="col-12">
                         <div class="section-title">
-                            <h4>Date Table</h4>
+                            <h4>Add packages</h4>
                         </div>
                     </div>
-                    <div class="col-12">
-                        <div class="block table-block mb-4">
-                            <div class="table-responsive">
-                                <table class="table">
-                                    <thead>
-                                    <tr>
-                                        <th>Id</th>
-                                        <th>Camp_Id</th>
-                                        <th>Date</th>
-                                        <th>Edit</th>
-                                        <th>Delete</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                <?php
+                    <div class="col-md-2"></div>
+                    <div class="col-md-8">
+                        <div class="block form-block mb-4">
+                            <form action="Add_pkg_process.php" method="POST" enctype="multipart/form-data">
+                                <div class="form-group">
+                                    <div class="form-row">
+                                        <label class="col-md-3">Camp_ID</label>
+                                        <div class="col-md-9">
+                                            <select name="camp_id" class="form-control input-lg">
+                                                <?php
                                     include 'conn.php';
-                                    $res=mysql_query("select * from dates ORDER by id DESC");
+                                    $res=mysql_query("select * from camps");
                                     $row=mysql_fetch_row($res);
-                                    $id=1;
+                                    
                                     while($row)
                                     {
                                 ?>
-                                    <tr>
-                                        <td><?php echo $id ?></td>
-                                        <td class=""><?php echo $row[1] ?></td>
-                                        <td class=""><?php echo $row[2] ?></td>
-                                       
-                                        <td><a href="edit_dates.php?id=<?php echo $row[0] ?>"><button>Edit</button></a></td>
-
-                                        <td><a href="delete_dates_process.php?id=<?php echo $row[0] ?>"><button>Delete</button></a></td>
-                                    </tr>
-                                <?php
-                                        $id++;
+                                                <option value="<?php echo $row[0];?>"><?php echo $row[1];?></option>
+                                                <?php
+                                
                                         $row=mysql_fetch_row($res);
                                     }
                                 ?>
-                                    </tbody>
-                                </table>
-                            </div>
+                                
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="form-row">
+                                        <label class="col-md-3">Name</label>
+                                        <div class="col-md-9">
+                                            <input class="form-control" placeholder="From Source To Destination" type="text" name="name" required="">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="form-row">
+                                        <label class="col-md-3">Cost</label>
+                                        <div class="col-md-9">
+                                            <input class="form-control" placeholder="Cost per Person" type="text" name="cost" required="">
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <hr>
+                                <button class="btn btn-primary mr-3" type="submit">Submit</button>
+                            </form>
                         </div>
                     </div>
+                    <div class="col-md-2"></div>
+                    
+                    <div class="col-md-2"></div>
                 </div>
             </div>
         </div>
+    </div>
+
 </section>
 
 <!---Right Tray--->
@@ -205,5 +220,5 @@ if(!isset($_SESSION['admin']))
 
 </body>
 
-<!-- Mirrored from wow.designgurus.in/sideNavigationLayout/blue/tables_regular.php by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 05 Nov 2017 08:07:53 GMT -->
+<!-- Mirrored from wow.designgurus.in/sideNavigationLayout/blue/forms_regular.php by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 05 Nov 2017 08:07:50 GMT -->
 </html>

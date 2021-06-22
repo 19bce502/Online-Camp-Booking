@@ -1,0 +1,20 @@
+<?php
+	$con=mysql_connect("Localhost","root","");
+	$db=mysql_select_db('expedition');
+	$name=$_POST['name'];
+	$days=$_POST['days'];
+	$cost=$_POST['cost'];	
+	$iname=$_FILES['image']['name'];
+	$nights=$_POST['nights'];
+	$loc=$_POST['location'];
+	$map=$_POST['map'];
+	$des=$_POST['img_des'];
+	$iternary=$_POST['iternary'];
+	$link=$_POST['link'];
+	$q=mysql_query("INSERT INTO camps VALUES(NULL, '$name', $days, $cost, '$iname', $nights, '$loc', '$map','$des', 'iternary', '$link')");
+	$move=move_uploaded_file($_FILES['image']['tmp_name'],"../project/images/camps/".$iname);
+	if($q)
+	{
+		header("location:Camps.php");
+	}
+?>

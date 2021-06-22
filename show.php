@@ -6,7 +6,6 @@ if(!isset($_SESSION['admin']))
 }
 
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,7 +17,7 @@ if(!isset($_SESSION['admin']))
     <meta content="Design_Gurus" name="author">
     <meta content="WOW Admin dashboard html template" name="description">
     <meta content="width=device-width, initial-scale=1" name="viewport">
-    <title>Admin</title>
+    <title>Admin </title>
 
     <!--favicon-->
     <link href="assets/images/favicon.ico" rel="shortcut icon">
@@ -72,14 +71,14 @@ if(!isset($_SESSION['admin']))
         <!--Header Fixed-->
         <?php
                 include 'header.php';
-            ?>
+        ?>
           
         <div class="content sm-gutter">
             <div class="container-fluid padding-25 sm-padding-10">
                 <div class="row">
                     <div class="col-12">
                         <div class="section-title">
-                            <h4>Date Table</h4>
+                            <h4>User Info Table</h4>
                         </div>
                     </div>
                     <div class="col-12">
@@ -88,40 +87,88 @@ if(!isset($_SESSION['admin']))
                                 <table class="table">
                                     <thead>
                                     <tr>
-                                        <th>Id</th>
-                                        <th>Camp_Id</th>
+                                        <th>Coupon Id</th>
+                                        <th>Name</th>
+                                        <th>Contact</th>
+                                        <th>Email</th>
+                                        <th>Image</th>
+                                        <th>Address</th>
+                                        <th>Age</th>
+                                        <th>Camp</th>
+                                        <th>Package</th>
                                         <th>Date</th>
-                                        <th>Edit</th>
-                                        <th>Delete</th>
+                                        <th>Total Price</th>
                                     </tr>
                                     </thead>
                                     <tbody>
                                 <?php
+                                    $ci=$_GET['id'];
                                     include 'conn.php';
-                                    $res=mysql_query("select * from dates ORDER by id DESC");
+                                    $res=mysql_query("select * from booking where id=$ci");
                                     $row=mysql_fetch_row($res);
-                                    $id=1;
-                                    while($row)
-                                    {
+                                    
                                 ?>
                                     <tr>
-                                        <td><?php echo $id ?></td>
-                                        <td class=""><?php echo $row[1] ?></td>
-                                        <td class=""><?php echo $row[2] ?></td>
-                                       
-                                        <td><a href="edit_dates.php?id=<?php echo $row[0] ?>"><button>Edit</button></a></td>
-
-                                        <td><a href="delete_dates_process.php?id=<?php echo $row[0] ?>"><button>Delete</button></a></td>
+                                        <td><?php echo $row[0] ?></td>
+                                        <?php
+                                            include 'conn.php';
+                                    $res1=mysql_query("select * from signup where id=$row[2]");
+                                    $row1=mysql_fetch_row($res1);
+                                    
+                                        ?>
+                                        <td class=""><?php echo $row1[1] ?></td>
+                                        
+                                        
+                                        <td class=""><?php echo $row1[2] ?></td>
+                                        <td class=""><?php echo $row1[3] ?></td>
+                                        <td class="price"><img src="../project/users/<?php echo $row1[7] ?>" hight="50" width="50"></td>
+                                        <td class=""><?php echo $row1[4] ?></td>
+                                        <td class=""><?php echo $row1[6] ?></td>
+                                        <?php
+                                            include 'conn.php';
+                                    $res1=mysql_query("select * from camps where id=$row[1]");
+                                    $row1=mysql_fetch_row($res1);
+                                    
+                                        ?>
+                                        <td class=""><?php echo $row1[1] ?></td>
+                                        <?php
+                                            include 'conn.php';
+                                    $res1=mysql_query("select * from pkg where id=$row[4]");
+                                    $row1=mysql_fetch_row($res1);
+                                    
+                                        ?>
+                                        <td class=""><?php echo $row1[2] ?></td>
+                                        <?php
+                                            include 'conn.php';
+                                    $res1=mysql_query("select * from dates where id=$row[3]");
+                                    $row1=mysql_fetch_row($res1);
+                                    
+                                        ?>
+                                        <td class=""><?php echo $row1[2] ?></td>
+                                        <?php
+                                            include 'conn.php';
+                                    $res1=mysql_query("select * from pkg where id=$row[4]");
+                                    $row1=mysql_fetch_row($res1);
+                                    
+                                        ?>
+                                        <td class=""><?php echo $row1[3] ?></td>
                                     </tr>
-                                <?php
-                                        $id++;
-                                        $row=mysql_fetch_row($res);
-                                    }
-                                ?>
                                     </tbody>
                                 </table>
                             </div>
                         </div>
+                        <div>
+                            <?php
+                                    $ci=$_GET['id'];
+                                    include 'conn.php';
+                                    $res=mysql_query("select * from booking where id=$ci");
+                                    $row=mysql_fetch_row($res);
+                                    
+                                ?>
+                                
+                        <center><a href="paid_process.php?id=<?php echo $row[0];?>"><button class="btn btn-primary btn-round  d-none d-md-block"><h1 style="color:white;">Paid</h1></button></center></a>
+                        
+                    </div>
                     </div>
                 </div>
             </div>

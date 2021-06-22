@@ -10,7 +10,7 @@ if(!isset($_SESSION['admin']))
 <!DOCTYPE html>
 <html lang="en">
 
-<!-- Mirrored from wow.designgurus.in/sideNavigationLayout/blue/tables_regular.php by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 05 Nov 2017 08:07:50 GMT -->
+<!-- Mirrored from wow.designgurus.in/sideNavigationLayout/blue/forms_regular.php by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 05 Nov 2017 08:07:50 GMT -->
 <head>
     <meta charset="UTF-8">
     <meta content="ie=edge" http-equiv="x-ua-compatible">
@@ -70,62 +70,127 @@ if(!isset($_SESSION['admin']))
 <section class="page-container">
     <div class="page-content-wrapper">
         <!--Header Fixed-->
-        <?php
+            <?php
                 include 'header.php';
             ?>
-          
-        <div class="content sm-gutter">
+               <div class="content sm-gutter">
             <div class="container-fluid padding-25 sm-padding-10">
                 <div class="row">
                     <div class="col-12">
                         <div class="section-title">
-                            <h4>Date Table</h4>
+                            <h4>Add Camps</h4>
                         </div>
                     </div>
-                    <div class="col-12">
-                        <div class="block table-block mb-4">
-                            <div class="table-responsive">
-                                <table class="table">
-                                    <thead>
-                                    <tr>
-                                        <th>Id</th>
-                                        <th>Camp_Id</th>
-                                        <th>Date</th>
-                                        <th>Edit</th>
-                                        <th>Delete</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                <?php
-                                    include 'conn.php';
-                                    $res=mysql_query("select * from dates ORDER by id DESC");
-                                    $row=mysql_fetch_row($res);
-                                    $id=1;
-                                    while($row)
-                                    {
-                                ?>
-                                    <tr>
-                                        <td><?php echo $id ?></td>
-                                        <td class=""><?php echo $row[1] ?></td>
-                                        <td class=""><?php echo $row[2] ?></td>
-                                       
-                                        <td><a href="edit_dates.php?id=<?php echo $row[0] ?>"><button>Edit</button></a></td>
+                    <div class="col-md-2"></div>
+                    <div class="col-md-8">
+                        <div class="block form-block mb-4">
+                            <form action="Add_camps_process.php" method="POST" enctype="multipart/form-data">
+                                <div class="form-group">
+                                    <div class="form-row">
+                                        <label class="col-md-3">Camp Name</label>
+                                        <div class="col-md-9">
+                                            <input class="form-control" placeholder="Camps Name" type="text" name="name" required="">
+                                        </div>
+                                    </div>
+                                </div>
 
-                                        <td><a href="delete_dates_process.php?id=<?php echo $row[0] ?>"><button>Delete</button></a></td>
-                                    </tr>
-                                <?php
-                                        $id++;
-                                        $row=mysql_fetch_row($res);
-                                    }
-                                ?>
-                                    </tbody>
-                                </table>
-                            </div>
+                                <div class="form-group">
+                                    <div class="form-row">
+                                        <label class="col-md-3">Days</label>
+                                        <div class="col-md-9">
+                                            <input class="form-control" placeholder="Days" type="text" name="days" required="">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="form-row">
+                                        <label class="col-md-3">Cost</label>
+                                        <div class="col-md-9">
+                                            <input class="form-control" placeholder="Camp Cost" type="text" name="cost" required="">
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <div class="form-row">
+                                        <label class="col-md-3">Image</label>
+                                        <div class="col-md-9">
+                                            <input type="file" name="image" required="">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="form-row">
+                                        <label class="col-md-3">Nights</label>
+                                        <div class="col-md-9">
+                                            <input class="form-control" placeholder="Nights" type="text" name="nights" required="">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="form-row">
+                                        <label class="col-md-3">Location</label>
+                                        <div class="col-md-9">
+                                            <input class="form-control" placeholder="Location" type="text" name="location" required="">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="form-row">
+                                        <label class="col-md-3">Map</label>
+                                        <div class="col-md-9">
+                                            <input class="form-control" placeholder="Map link" type="text" name="map" required="">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="form-row">
+                                        <label class="col-md-3">Image description</label>
+                                        <div class="col-md-9">
+                                            <input class="form-control" placeholder="Description" type="text" name="img_des" required="">
+                                            <div class="adjoined-bottom">
+                                                <div class="grid-container">
+                                                    <div class="grid-width-100">
+                                                        <div id="editor">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="form-row">
+                                        <label class="col-md-3">Iternary</label>
+                                        <div class="col-md-9">
+                                            <input class="form-control" placeholder="Iternary" type="text" name="iternary" required="">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="form-row">
+                                        <label class="col-md-3">Brochure link</label>
+                                        <div class="col-md-9">
+                                            <input class="form-control" placeholder="link" type="text" name="link" required="">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <hr>
+                                <button class="btn btn-primary mr-3" type="submit">Submit</button>
+                            </form>
                         </div>
                     </div>
+                    <div class="col-md-2"></div>
                 </div>
             </div>
         </div>
+    </div>
+
 </section>
 
 <!---Right Tray--->
@@ -185,6 +250,7 @@ if(!isset($_SESSION['admin']))
 <!--Custom Scroll-->
 <script type="text/javascript" src="assets/plugins/customScroll/jquery.mCustomScrollbar.min.js"></script>
 <!--Sortable Js-->
+
 <script type="text/javascript" src="assets/plugins/sortable2/sortable.min.js"></script>
 <!--DropZone Js-->
 <script type="text/javascript" src="assets/plugins/dropzone/dropzone.js"></script>
@@ -205,5 +271,5 @@ if(!isset($_SESSION['admin']))
 
 </body>
 
-<!-- Mirrored from wow.designgurus.in/sideNavigationLayout/blue/tables_regular.php by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 05 Nov 2017 08:07:53 GMT -->
+<!-- Mirrored from wow.designgurus.in/sideNavigationLayout/blue/forms_regular.php by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 05 Nov 2017 08:07:50 GMT -->
 </html>

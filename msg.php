@@ -1,116 +1,164 @@
-
-<?php 
+<?php
 session_start();
+if(!isset($_SESSION['admin']))
+{
+    header("location:index.php");
+}
 
-$pgname="destination"; ?>
+?>
 <!DOCTYPE html>
 <html lang="en">
-<?php
-	$d=$_GET['d'];
-?>   
-<!-- Mirrored from zone.qtcmedia.com/html/gallery.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Nov 2017 12:14:26 GMT -->
+
+<!-- Mirrored from wow.designgurus.in/sideNavigationLayout/blue/index.php by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 05 Nov 2017 08:04:24 GMT -->
 <head>
-      <title>Expedition</title>
-      <!-- viewport meta -->
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <!-- styles -->
-      <link rel="stylesheet" href="plugins/bootstrap/css/bootstrap.min.css">
-      <!-- fontawesome css -->
-      <link rel="stylesheet" href="plugins/font-awesome/css/font-awesome.min.css">
-      <!-- flaticon css -->
-      <link rel="stylesheet" href="plugins/flaticon/flaticon.css">
-      <!-- revolution slider css -->
-      <link rel="stylesheet" href="plugins/revolution/css/settings.css">
-      <link rel="stylesheet" href="plugins/revolution/css/layers.css">
-      <link rel="stylesheet" href="plugins/revolution/css/navigation.css">
-      <!-- jQuery ui css -->
-      <link href="plugins/jquery-ui-1.12.1/jquery-ui.css" rel="stylesheet">
-      <!-- owl carousel css -->
-      <link rel="stylesheet" href="plugins/owl.carousel-2/assets/owl.carousel.css">
-      <link rel="stylesheet" href="plugins/owl.carousel-2/assets/owl.theme.default.min.css">
-      <!-- gallery -->
-      <link rel="stylesheet" href="plugins/lightGallery/dist/css/lightgallery.min.css">
-      <!-- animate css -->
-      <link rel="stylesheet" href="plugins/animate.min.css">
-      <!-- bxslider -->
-      <link rel="stylesheet" href="plugins/bx-slider/jquery.bxslider.css">
-      <!-- datetimepicker css -->
-      <link rel="stylesheet" href="plugins/datetimepicker/jquery.datetimepicker.min.css">
-      <!-- master stylesheet -->
-      <link rel="stylesheet" href="css/style.css">
-      <!-- responsive stylesheet -->
-      <link rel="stylesheet" href="css/responsive.css">
-      <!-- skin stylesheet -->
-      <link rel="stylesheet" href="css/skin/skin-default.css">
-      <!-- favicon -->
-      <link rel="shortcut icon" href="images/favicon.ico" />
-   </head>
-   <body>
-      <?php
-         include 'header.php';
-      ?>
+    <meta charset="UTF-8">
+    <meta content="ie=edge" http-equiv="x-ua-compatible">
+    <meta content="template language" name="keywords">
+    <meta content="Design_Gurus" name="author">
+    <meta content="WOW Admin dashboard html template" name="description">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <title>Admin</title>
 
-    <section class="inner-banner">
-         <div class="zt-container">
-            <div class="box clearfix">
-               <h2>EXPEDITION</h2>
-               <ul class="breadcumb">
-                  <li><a href="index.html">Home</a></li>
-                  <li><span>checkout</span></li>
-               </ul>
+    <!--favicon-->
+    <link href="assets/images/favicon.ico" rel="shortcut icon">
+
+    <!--Preloader-CSS-->
+    <link rel="stylesheet" href="assets/plugins/preloader/preloader.css">
+
+    <!--bootstrap-4-->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+
+    <!--Custom Scroll-->
+    <link rel="stylesheet" href="assets/plugins/customScroll/jquery.mCustomScrollbar.min.css">
+    <!--Font Icons-->
+    <link rel="stylesheet" href="assets/icons/simple-line/css/simple-line-icons.css">
+    <link rel="stylesheet" href="assets/icons/dripicons/dripicons.css">
+    <link rel="stylesheet" href="assets/icons/ionicons/css/ionicons.min.css">
+    <link rel="stylesheet" href="assets/icons/eightyshades/eightyshades.css">
+    <link rel="stylesheet" href="assets/icons/fontawesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/icons/foundation/foundation-icons.css">
+    <link rel="stylesheet" href="assets/icons/metrize/metrize.css">
+    <link rel="stylesheet" href="assets/icons/typicons/typicons.min.css">
+    <link rel="stylesheet" href="assets/icons/weathericons/css/weather-icons.min.css">
+
+    <!--Date-range-->
+    <link rel="stylesheet" href="assets/plugins/date-range/daterangepicker.css">
+    <!--Drop-Zone-->
+    <link rel="stylesheet" href="assets/plugins/dropzone/dropzone.css">
+    <!--Full Calendar-->
+    <link rel="stylesheet" href="assets/plugins/full-calendar/fullcalendar.min.css">
+    <!--Normalize Css-->
+    <link rel="stylesheet" href="assets/css/normalize.css">
+    <!--Main Css-->
+    <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+<?php
+    include "slide.php";
+?>
+
+<!--Page Container-->
+<section class="page-container">
+    <div class="page-content-wrapper">
+        <!--Header Fixed-->
+        <?php
+                include 'header.php';
+            ?>
+          
+
+        <!--Main Content-->
+        <div class="content ">
+            <div class="container-fluid padding-25 sm-padding-10">
+                <div class="row">
+                    
+
+                    <div class="col-12">
+                        <div style="margin-top: 250px">
+                            <center><strong><h1>SORRY NO SUCH BOOKING IS DONE</h1></strong></center>
+                        </div>
+                    </div>
+                </div>
             </div>
-         </div>
-      </section>
-           <section class="popular-services sec-padding sec-bg-default home-two">
-         <div class="zt-container">
-            <div class="sec-title text-center sec-title-padding">
-               <h2><?php echo $d ;?></h2>
-               <span class="tagline">Your task has been unsuccessful !!!! </span>
-               <span class="img-border"></span>
-            </div>
-         </div>
-      </section> 
-      <?php
-         include 'footer.php';
-      ?>
-      <!-- JS -->
-      <!-- jQuery js -->
-      <script src="plugins/jquery/jquery-1.12.4.min.js"></script>
-      <!-- bootstrap js -->
-      <script src="plugins/bootstrap/js/bootstrap.min.js"></script>
-      <!-- jQuery ui js -->
-      <script src="plugins/jquery-ui-1.12.1/jquery-ui.js"></script>
-      <!-- owl carousel js -->
-      <script src="plugins/owl.carousel-2/owl.carousel.min.js"></script>
-      <!-- gallery js -->
-      <script src="plugins/lightGallery/dist/js/lightgallery-all.min.js"></script>
-      <script src="plugins/lightGallery/dist/js/jquery.mousewheel.min.js"></script>
-      <!-- jQuery validation -->
-      <script src="plugins/jquery-validation/dist/jquery.validate.min.js"></script>
-      <!-- bxslider js -->
-      <script src="plugins/bx-slider/jquery.bxslider.min.js"></script>
-      <!-- masonry js -->
-      <script src="plugins/masonry.pkgd.min.js"></script>
-      <!-- datetimepicker js -->
-      <script src="plugins/datetimepicker/jquery.datetimepicker.full.min.js"></script>
-      <!-- revolution slider js -->
-      <script src="plugins/revolution/js/jquery.themepunch.tools.min.js"></script>
-      <script src="plugins/revolution/js/jquery.themepunch.revolution.min.js"></script>
-      <script src="plugins/revolution/js/extensions/revolution.extension.actions.min.js"></script>
-      <script src="plugins/revolution/js/extensions/revolution.extension.carousel.min.js"></script>
-      <script src="plugins/revolution/js/extensions/revolution.extension.kenburn.min.js"></script>
-      <script src="plugins/revolution/js/extensions/revolution.extension.layeranimation.min.js"></script>
-      <script src="plugins/revolution/js/extensions/revolution.extension.migration.min.js"></script>
-      <script src="plugins/revolution/js/extensions/revolution.extension.navigation.min.js"></script>
-      <script src="plugins/revolution/js/extensions/revolution.extension.parallax.min.js"></script>
-      <script src="plugins/revolution/js/extensions/revolution.extension.slideanims.min.js"></script>
-      <script src="plugins/revolution/js/extensions/revolution.extension.video.min.js"></script>
+        </div>
+    </div>
+</section>          
 
-      <!-- theme custom js  -->
-      <script src="js/main.js"></script>
-   </body>
+<!---Right Tray--->
+<div class="right-sidebar px-3">
+    <button class="right-side-toggle"><i class="fa fa-cog fa-spin"></i></button>
+	<div class="block bg-trans" style="margin-bottom: 0">
+        <div class="block-heading">
+            <h5>Top Navigation</h5>
+        </div>
+        <ul class="list-unstyled top-nav themecolors">
+            <li><a href="javascript:void(0)" data-laycolor="topNavigationLayout/cyan"><div class="color-div" style="background: #18BCC9"><i class="fa fa-check my-auto"></i></div></a></li>
+            <li><a href="javascript:void(0)" data-laycolor="topNavigationLayout/blue"><div class="color-div" style="background: #1880c9"><i class="fa fa-check my-auto"></i></div></a></li>
+            <li><a href="javascript:void(0)" data-laycolor="topNavigationLayout/green"><div class="color-div" style="background: #18c97e"><i class="fa fa-check my-auto"></i></div></a></li>
+            <li><a href="javascript:void(0)" data-laycolor="topNavigationLayout/red"><div class="color-div" style="background: #e13f4c"><i class="fa fa-check my-auto"></i></div></a></li>
+            <li><a href="javascript:void(0)" data-laycolor="topNavigationLayout/purple"><div class="color-div" style="background: #723fe1"><i class="fa fa-check my-auto"></i></div></a></li>
+            <li><a href="javascript:void(0)" data-laycolor="topNavigationLayout/orange"><div class="color-div" style="background: rgb(255,120,45)"><i class="fa fa-check my-auto"></i></div></a></li>
+        </ul>
+    </div>
+	
+    <div class="block bg-trans">
+        <div class="block-heading">
+            <h5>Side Navigation</h5>
+        </div>
+        <ul class="list-unstyled side-nav themecolors">
+            <li><a href="javascript:void(0)" data-laycolor="sideNavigationLayout/cyan"><div class="color-div" style="background: #18BCC9"><i class="fa fa-check my-auto"></i></div></a></li>
+            <li><a href="javascript:void(0)" data-laycolor="sideNavigationLayout/blue"><div class="color-div" style="background: #1880c9"><i class="fa fa-check my-auto"></i></div></a></li>
+            <li><a href="javascript:void(0)" data-laycolor="sideNavigationLayout/green"><div class="color-div" style="background: #18c97e"><i class="fa fa-check my-auto"></i></div></a></li>
+            <li><a href="javascript:void(0)" data-laycolor="sideNavigationLayout/red"><div class="color-div" style="background: #e13f4c"><i class="fa fa-check my-auto"></i></div></a></li>
+            <li><a href="javascript:void(0)" data-laycolor="sideNavigationLayout/purple"><div class="color-div" style="background: #723fe1"><i class="fa fa-check my-auto"></i></div></a></li>
+            <li><a href="javascript:void(0)" data-laycolor="sideNavigationLayout/orange"><div class="color-div" style="background: rgb(255,120,45)"><i class="fa fa-check my-auto"></i></div></a></li>
+        </ul>
+    </div>
+</div>
 
+<!--Jquery-->
+<script type="text/javascript" src="assets/js/jquery-3.2.1.min.js"></script>
+<!--Bootstrap Js-->
+<script type="text/javascript" src="assets/js/popper.min.js"></script>
+<script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
+<!--Modernizr Js-->
+<script type="text/javascript" src="assets/js/modernizr.custom.js"></script>
 
-<!-- Mirrored from zone.qtcmedia.com/html/gallery.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Nov 2017 12:16:06 GMT -->
+<!--Morphin Search JS-->
+<script type="text/javascript" src="assets/plugins/morphin-search/classie.js"></script>
+<script type="text/javascript" src="assets/plugins/morphin-search/morphin-search.js"></script>
+<!--Morphin Search JS-->
+<script type="text/javascript" src="assets/plugins/preloader/pathLoader.js"></script>
+<script type="text/javascript" src="assets/plugins/preloader/preloader-main.js"></script>
+
+<!--Chart js-->
+<script type="text/javascript" src="assets/plugins/charts/Chart.min.js"></script>
+
+<!--Sparkline Chart Js-->
+<script type="text/javascript" src="assets/plugins/sparkline/jquery.sparkline.min.js"></script>
+<script type="text/javascript" src="assets/plugins/sparkline/jquery.charts-sparkline.js"></script>
+
+<!--Custom Scroll-->
+<script type="text/javascript" src="assets/plugins/customScroll/jquery.mCustomScrollbar.min.js"></script>
+<!--Sortable Js-->
+<script type="text/javascript" src="assets/plugins/sortable2/sortable.min.js"></script>
+<!--DropZone Js-->
+<script type="text/javascript" src="assets/plugins/dropzone/dropzone.js"></script>
+<!--Date Range JS-->
+<script type="text/javascript" src="assets/plugins/date-range/moment.min.js"></script>
+<script type="text/javascript" src="assets/plugins/date-range/daterangepicker.js"></script>
+<!--CK Editor JS-->
+<script type="text/javascript" src="assets/plugins/ckEditor/ckeditor.js"></script>
+<!--Data-Table JS-->
+<script type="text/javascript" src="assets/plugins/data-tables/datatables.min.js"></script>
+<!--Editable JS-->
+<script type="text/javascript" src="assets/plugins/editable/editable.js"></script>
+<!--Full Calendar JS-->
+<script type="text/javascript" src="assets/plugins/full-calendar/fullcalendar.min.js"></script>
+
+<!--- Main JS -->
+<script src="assets/js/main.js"></script>
+
+</body>
+
+<!-- Mirrored from wow.designgurus.in/sideNavigationLayout/blue/index.php by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 05 Nov 2017 08:05:18 GMT -->
 </html>

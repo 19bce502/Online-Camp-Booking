@@ -79,7 +79,7 @@ if(!isset($_SESSION['admin']))
                 <div class="row">
                     <div class="col-12">
                         <div class="section-title">
-                            <h4>Date Table</h4>
+                            <h4>Team Table</h4>
                         </div>
                     </div>
                     <div class="col-12">
@@ -89,16 +89,22 @@ if(!isset($_SESSION['admin']))
                                     <thead>
                                     <tr>
                                         <th>Id</th>
-                                        <th>Camp_Id</th>
-                                        <th>Date</th>
-                                        <th>Edit</th>
+                                        <th>Name</th>
+                                        <th>Speciality</th>
+                                        <th>Experience</th>
+                                        <th>Education Oualification</th>
+                                        <th>Contact</th>
+                                        <th>Email</th>
+                                        <th>Address</th>
+                                        <th>Age</th>
+                                        <th>Image</th>
                                         <th>Delete</th>
                                     </tr>
                                     </thead>
                                     <tbody>
                                 <?php
                                     include 'conn.php';
-                                    $res=mysql_query("select * from dates ORDER by id DESC");
+                                    $res=mysql_query("select * from team ORDER by id DESC");
                                     $row=mysql_fetch_row($res);
                                     $id=1;
                                     while($row)
@@ -108,10 +114,14 @@ if(!isset($_SESSION['admin']))
                                         <td><?php echo $id ?></td>
                                         <td class=""><?php echo $row[1] ?></td>
                                         <td class=""><?php echo $row[2] ?></td>
-                                       
-                                        <td><a href="edit_dates.php?id=<?php echo $row[0] ?>"><button>Edit</button></a></td>
-
-                                        <td><a href="delete_dates_process.php?id=<?php echo $row[0] ?>"><button>Delete</button></a></td>
+                                        <td class=""><?php echo $row[3] ?></td>
+                                        <td class=""><?php echo $row[4] ?></td>
+                                        <td class=""><?php echo $row[5] ?></td>
+                                        <td class=""><?php echo $row[6] ?></td>
+                                        <td class=""><?php echo $row[7] ?></td>
+                                        <td class=""><?php echo $row[8] ?></td>
+                                        <td class="price"><img src="../project/images/gallery/<?php echo $row[9] ?>" hight="50" width="50"></td>
+                                        <td><a href="delete_team_process.php?id=<?php echo $row[0] ?>"><button>Delete</button></a></td>
                                     </tr>
                                 <?php
                                         $id++;
